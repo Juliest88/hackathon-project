@@ -1,0 +1,10 @@
+.column {
+    text-align: center;
+    text-transform: uppercase;
+    height: 100%;
+    background-color: blue;
+
+    .country, .performance {
+        display: block;
+    }
+}

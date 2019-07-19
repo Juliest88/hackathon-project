@@ -1,5 +1,5 @@
 $chart_background_color: #0a2247;
-$y_axis_border_color: rgba(#fff, .3);
+$y_axis_border_color: rgba(#fff, .09);
 $percentage_lable_color: rgba(#fff, .9);
 $title-color: #fff;
 
@@ -23,7 +23,7 @@ $title-color: #fff;
         display: flex;
         flex-direction: column;
         height: 100vh;
-        width: 100vw;
+        width: 100%;
         list-style-type: none;
         margin: 0;
         padding: 0;
@@ -34,6 +34,7 @@ $title-color: #fff;
             align-items: flex-start;
             flex: 1 0;
             border-top: 1px solid $y_axis_border_color;
+            padding-top: 6px;
 
             .percentage-lable {
                 color: $percentage_lable_color;
@@ -46,14 +47,14 @@ $title-color: #fff;
         display: inline-flex;
         position: absolute;
         top: 0;
-        left: 220px;
-        width: calc(100vw - 220px);
+        left: 195px;
+        width: calc(100% - 195px);
         height: calc(100% - 20%); // 5 rows
         z-index: 2;
 
         chart-column {
             flex: 1 1;
-            margin: 5px;
+            margin-right: 16px;
         }
     }
 }

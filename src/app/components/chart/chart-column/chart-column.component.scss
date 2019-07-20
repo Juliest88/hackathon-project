@@ -22,6 +22,12 @@ $char_color: #fff;
         padding-top: 12px;
     }
 
+    .character {
+        img {
+            max-width: 100%;
+        }
+    }
+
     .performance-bar {
         position: absolute;
         left: 0;

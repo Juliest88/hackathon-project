@@ -11,18 +11,26 @@ $char_color: #fff;
 
     .country,
     .performance {
+        position: absolute;
         display: block;
-    }
+        z-index: 1;
+        left: 50%;
+        transform: translateX(-50%);
+}
 
     .country {
-        padding-top: 20px;
+        bottom: calc(100% - 40px);
     }
 
     .performance {
-        padding-top: 12px;
+        bottom: calc(100% - 60px);
     }
 
     .character {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
         img {
             max-width: 100%;
         }

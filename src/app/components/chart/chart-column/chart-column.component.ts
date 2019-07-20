@@ -20,7 +20,7 @@ export class ChartColumnComponent implements OnInit, OnChanges {
   }
 
   calculatePerformance(): void {
-    this.performance = Math.floor((this.chartItem.sales / this.chartItem.target) * 100) + '%';
+    this.performance = Math.floor((this.chartItem.sales / this.chartItem.target) * 100);
   }
 
 }

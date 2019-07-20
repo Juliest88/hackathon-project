@@ -40,6 +40,16 @@ $title-color: #fff;
                 color: $percentage_lable_color;
                 margin-left: 150px;
             }
+
+            &:last-child {
+                &::after {
+                    content: '0%';
+                    position: absolute;
+                    left: 150px;
+                    bottom: 0;
+                    color: $percentage_lable_color;
+                }
+            }
         }
     }
 
@@ -49,7 +59,7 @@ $title-color: #fff;
         top: 0;
         left: 195px;
         width: calc(100% - 195px);
-        height: calc(100% - 20%); // 5 rows
+        height: 100%;
         z-index: 2;
 
         chart-column {

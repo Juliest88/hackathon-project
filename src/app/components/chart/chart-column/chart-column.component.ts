@@ -7,6 +7,7 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 })
 export class ChartColumnComponent implements OnInit, OnChanges {
   @Input() chartItem: any;
+  @Input() bgColor: string;
   performance = null;
 
   constructor() { }

@@ -17,17 +17,17 @@ export class ChartComponent implements OnInit {
       {
         country: 'uk',
         target: 150000,
-        sales: 30000
+        sales: 148000
       },
       {
         country: 'sweden',
         target: 150000,
-        sales: 30000
+        sales: 32949
       },
       {
         country: 'denemark',
         target: 150000,
-        sales: 30000
+        sales: 45477
       },
       {
         country: 'finland',
@@ -37,12 +37,12 @@ export class ChartComponent implements OnInit {
       {
         country: 'norway',
         target: 150000,
-        sales: 30000
+        sales: 97923
       },
       {
         country: 'canada',
         target: 150000,
-        sales: 30000
+        sales: 130000
       },
       {
         country: 'us sport',
@@ -52,22 +52,22 @@ export class ChartComponent implements OnInit {
       {
         country: 'row',
         target: 150000,
-        sales: 30000
+        sales: 98000
       },
       {
         country: 'sk+gr',
         target: 150000,
-        sales: 30000
+        sales: 40000
       },
       {
         country: 'germany',
         target: 150000,
-        sales: 30000
+        sales: 57598
       },
       {
         country: 'latin',
         target: 150000,
-        sales: 30000
+        sales: 8775
       }
     ]
   }

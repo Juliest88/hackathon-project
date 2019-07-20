@@ -1,22 +1,25 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'chart-column',
   templateUrl: './chart-column.component.html',
   styleUrls: ['./chart-column.component.scss']
 })
-export class ChartColumnComponent implements OnInit {
+export class ChartColumnComponent implements OnInit, OnChanges {
   @Input() chartItem: any;
+  performance = null;
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  calculatePerformance() {
-    return (
-      (this.chartItem.sales / this.chartItem.target) * 100 + '%'
-    )
+  ngOnChanges(): void {
+    this.calculatePerformance();
+  }
+
+  calculatePerformance(): void {
+    this.performance = Math.floor((this.chartItem.sales / this.chartItem.target) * 100) + '%';
   }
 
 }

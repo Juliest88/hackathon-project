@@ -3,6 +3,8 @@
         {{chartItem.country}}
     </span>
     <span class="performance">
-        {{calculatePerformance()}}
+        {{performance}}
     </span>
+    <span class="performance-bar" 
+    [style.height]="performance"></span>
 </div>

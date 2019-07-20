@@ -2,6 +2,7 @@ $chart_item_background_color: rgba(rgb(0, 43, 185), .5);
 $char_color: #fff;
 
 .column {
+    position: relative;
     text-align: center;
     text-transform: uppercase;
     height: 100%;
@@ -19,5 +20,13 @@ $char_color: #fff;
 
     .performance {
         padding-top: 12px;
+    }
+
+    .performance-bar {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: red;
     }
 }

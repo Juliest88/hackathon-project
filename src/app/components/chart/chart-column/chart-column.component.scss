@@ -1,45 +1,42 @@
-$chart_item_background_color: rgba(rgb(0, 43, 185), .5);
+$chart_item_background_color: rgba(rgb(0, 43, 185), 0.5);
 $char_color: #fff;
 
 .column {
-    position: relative;
-    text-align: center;
-    text-transform: uppercase;
-    height: 100%;
-    background-color: $chart_item_background_color;
-    color: $char_color;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  height: 100%;
+  background-color: $chart_item_background_color;
+  color: $char_color;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 
-    .country,
-    .performance {
-        position: absolute;
-        display: block;
-        z-index: 1;
-        left: 50%;
-        transform: translateX(-50%);
-}
+  .text-wrapper {
+    display: block;
+    flex-shrink: 0;
+    margin-bottom: auto;
+  }
 
-    .country {
-        bottom: calc(100% - 40px);
+  .character {
+    z-index: 2;
+    flex-shrink: 0;
+    img {
+      max-width: 100%;
     }
+  }
 
-    .performance {
-        bottom: calc(100% - 60px);
+  .performance-bar {
+    flex: 0 0 auto;
+    &::after {
+      content: "";
+      width: 100%;
+      height: inherit;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background: inherit;
+      z-index: 1;
     }
-
-    .character {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1;
-        img {
-            max-width: 100%;
-        }
-    }
-
-    .performance-bar {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-    }
+  }
 }

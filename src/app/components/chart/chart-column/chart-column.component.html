@@ -1,16 +1,17 @@
 <div class="column">
+  <span class="text-wrapper">
     <span class="country">
-        {{chartItem.country}}
+      {{ chartItem.country }}
     </span>
-    <span class="performance">
-        {{performance}}%
-    </span>
-    <span class="character"
-    [style.bottom.%]="performance">
-            <img src="./../../../../assets/giphy.gif" alt="bla bla"> 
-    </span>
-    <span class="performance-bar" 
+    <span class="performance"> {{ performance }}% </span>
+  </span>
+  <span class="character" [style.bottom.%]="performance">
+    <img src="./../../../../assets/giphy.gif" alt="bla bla" />
+  </span>
+  <span
+    class="performance-bar"
     [style.height.%]="performance"
-    [style.background-color]="chartItem.bgColor">
-</span>
+    [style.background-color]="chartItem.bgColor"
+  >
+  </span>
 </div>

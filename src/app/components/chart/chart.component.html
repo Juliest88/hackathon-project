@@ -1,23 +1,23 @@
 <div class="chart-wrapper">
-    <div class="title">
-        War World 3
-    </div>
-    <ul class="y-axis">
-        <li class="graph-row-lable">
-            <span class="percentage-lable">100%</span>
-        </li>
-        <li class="graph-row-lable">
-            <span class="percentage-lable">75%</span>
-        </li>
-        <li class="graph-row-lable">
-            <span class="percentage-lable">50%</span>
-        </li>
-        <li class="graph-row-lable">
-            <span class="percentage-lable">25%</span>
-        </li>
-    </ul>
-    <div class="chart-column-wrapper">
-        <chart-column *ngFor="let chartItem of chartItems" [chartItem]="chartItem">
-        </chart-column>
-    </div>
+  <div class="title">
+    World War 3
+  </div>
+  <ul class="y-axis">
+    <li class="graph-row-lable">
+      <span class="percentage-lable">100%</span>
+    </li>
+    <li class="graph-row-lable">
+      <span class="percentage-lable">75%</span>
+    </li>
+    <li class="graph-row-lable">
+      <span class="percentage-lable">50%</span>
+    </li>
+    <li class="graph-row-lable">
+      <span class="percentage-lable">25%</span>
+    </li>
+  </ul>
+  <div class="chart-column-wrapper">
+    <chart-column *ngFor="let chartItem of chartItems" [chartItem]="chartItem">
+    </chart-column>
+  </div>
 </div>

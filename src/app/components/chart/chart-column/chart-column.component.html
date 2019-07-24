@@ -5,13 +5,12 @@
     </span>
     <span class="performance"> {{ performance }}% </span>
   </span>
-  <span class="character" [style.bottom.%]="performance">
-    <img src="./../../../../assets/giphy.gif" alt="bla bla" />
+  <span class="character">
+    <img src="./../../../../assets/{{chartItem.imgUrl}}.gif" alt="bla bla" />
   </span>
   <span
     class="performance-bar"
     [style.height.%]="performance"
-    [style.background-color]="chartItem.bgColor"
-  >
+    [style.background-color]="chartItem.bgColor">
   </span>
 </div>

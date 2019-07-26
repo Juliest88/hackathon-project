@@ -8,9 +8,8 @@
   <span class="character">
     <img src="./../../../../assets/{{chartItem.id}}.gif" alt="Team Character" />
   </span>
-  <span
+  <span #performanceBar
     class="performance-bar"
-    [style.height.%]="chartItem.completion_rate"
     [style.background-color]="chartItem.bgColor">
   </span>
 </div>

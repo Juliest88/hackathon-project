@@ -28,7 +28,7 @@ $char_color: #fff;
     .character {
         z-index: 2;
         flex-shrink: 0;
-        transition: all 1.5s linear;
+        transition: all 1.8s linear;
 
         img {
             max-width: 100%;
@@ -37,7 +37,7 @@ $char_color: #fff;
 
     .performance-bar {
         flex: 0 0 auto;
-        transition: all 1.5s linear;
+        transition: all 1.8s linear;
 
         &::after {
             content: "";

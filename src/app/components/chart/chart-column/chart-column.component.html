@@ -1,16 +1,16 @@
 <div class="column">
   <span class="text-wrapper">
     <span class="country">
-      {{ chartItem.country }}
+      {{ chartItem.SEO_Team }}
     </span>
-    <span class="performance"> {{ performance }}% </span>
+    <span class="performance"> {{ completion_rate }}% </span>
   </span>
   <span class="character">
-    <img src="./../../../../assets/{{chartItem.imgUrl}}.gif" alt="bla bla" />
+    <img src="./../../../../assets/{{chartItem.id}}.gif" alt="Team Character" />
   </span>
   <span
     class="performance-bar"
-    [style.height.%]="performance"
+    [style.height.%]="completion_rate"
     [style.background-color]="chartItem.bgColor">
   </span>
 </div>

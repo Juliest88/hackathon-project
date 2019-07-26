@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Team } from 'src/app/shared/models/Team';
 
 @Component({
   selector: 'chart',
@@ -6,90 +7,66 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chart.component.scss']
 })
 export class ChartComponent implements OnInit {
-  chartItems: any = {
-
-  };
+  chartItems: Team[];
 
   constructor() { }
 
   ngOnInit() {
     this.chartItems = [
       {
-        country: 'uk',
-        target: 150000,
-        sales: 148000,
-        imgUrl: '1',
-        bgColor: '#ffdd00'
+        id: 1,
+        SEO_Team: 'uk',
+        completion_rate: 5
       },
       {
-        country: 'sweden',
-        target: 150000,
-        sales: 78234,
-        imgUrl: '2',
-        bgColor: '#ff66ff'
+        id: 2,
+        SEO_Team: 'sweden',
+        completion_rate: 18
       },
       {
-        country: 'denemark',
-        target: 150000,
-        sales: 123089,
-        imgUrl: '8',
-        bgColor: '#66ffcc'
+        id: 3,
+        SEO_Team: 'denemark',
+        completion_rate: 12
       },
       {
-        country: 'finland',
-        target: 150000,
-        sales: 30000,
-        imgUrl: '4',
-        bgColor: '#ff1a75'
+        id: 4,
+        SEO_Team: 'finland',
+        completion_rate: 16
       },
       {
-        country: 'norway',
-        target: 150000,
-        sales: 97923,
-        imgUrl: '5',
-        bgColor: '#00e673'
+        id: 5,
+        SEO_Team: 'norway',
+        completion_rate: 37
       },
       {
-        country: 'canada',
-        target: 150000,
-        sales: 130000,
-        imgUrl: '6',
-        bgColor: '#00ffff'
+        id: 6,
+        SEO_Team: 'canada',
+        completion_rate: 100
       },
       {
-        country: 'us sport',
-        target: 150000,
-        sales: 30000,
-        imgUrl: '2',
-        bgColor: '#0066ff'
+        id: 7,
+        SEO_Team: 'us sport',
+        completion_rate: 16
       },
       {
-        country: 'row',
-        target: 150000,
-        sales: 98000,
-        imgUrl: '8',
-        bgColor: '#f78b09'
+        id: 8,
+        SEO_Team: 'row',
+        completion_rate: 30
       },
       {
-        country: 'sk+gr',
-        target: 150000,
-        sales: 40000,
-        imgUrl: '5',
-        bgColor: '#00e6e6'
+        id: 9,
+        SEO_Team: 'sk+gr',
+        completion_rate: 32
       },
       {
-        country: 'germany',
-        target: 150000,
-        sales: 57598,
-        imgUrl: '9',
-        bgColor: '#ff4dff'
+        id: 10,
+        SEO_Team: 'germany',
+        completion_rate: 31
       },
       {
-        country: 'latin',
-        target: 150000,
-        sales: 8775,
-        imgUrl: '4',
-        bgColor: '#0099cc'
+        id: 11,
+        SEO_Team: 'latin',
+        completion_rate: 0
       }
     ]
   }

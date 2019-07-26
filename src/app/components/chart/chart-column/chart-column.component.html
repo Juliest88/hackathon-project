@@ -3,14 +3,14 @@
     <span class="country">
       {{ chartItem.SEO_Team }}
     </span>
-    <span class="performance"> {{ completion_rate }}% </span>
+    <span class="performance"> {{ chartItem.completion_rate }}% </span>
   </span>
   <span class="character">
     <img src="./../../../../assets/{{chartItem.id}}.gif" alt="Team Character" />
   </span>
   <span
     class="performance-bar"
-    [style.height.%]="completion_rate"
+    [style.height.%]="chartItem.completion_rate"
     [style.background-color]="chartItem.bgColor">
   </span>
 </div>

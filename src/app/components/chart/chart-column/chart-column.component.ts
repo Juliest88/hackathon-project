@@ -8,7 +8,7 @@ import { Team } from 'src/app/shared/models/Team';
 })
 export class ChartColumnComponent implements OnInit {
   @Input() chartItem: Team;
-  @ViewChild('performanceBar') performanceBar: ElementRef;
+  @ViewChild('performanceBar', { static: true }) performanceBar: ElementRef;
 
   constructor() { }
 

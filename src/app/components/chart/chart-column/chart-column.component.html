@@ -6,10 +6,9 @@
     <span class="performance"> {{ chartItem.completion_rate }}% </span>
   </span>
   <span class="character">
-    <img src="./../../../../assets/{{chartItem.id}}.gif" alt="Team Character" />
+    <img src="./../../../../assets/{{chartItem.id}}.gif" alt="{{chartItem.SEO_Team | uppercase}} Character"
+      title="{{chartItem.SEO_Team | uppercase}} Character" />
   </span>
-  <span #performanceBar
-    class="performance-bar"
-    [style.background-color]="chartItem.bgColor">
+  <span #performanceBar class="performance-bar" [style.background-color]="chartItem.bgColor">
   </span>
 </div>

@@ -3,17 +3,8 @@
     World War 3
   </div>
   <ul class="y-axis">
-    <li class="graph-row-lable">
-      <span class="percentage-lable">100%</span>
-    </li>
-    <li class="graph-row-lable">
-      <span class="percentage-lable">75%</span>
-    </li>
-    <li class="graph-row-lable">
-      <span class="percentage-lable">50%</span>
-    </li>
-    <li class="graph-row-lable">
-      <span class="percentage-lable">25%</span>
+    <li class="graph-row-lable" *ngFor="let percentage of percentageLables">
+      <span class="percentage-lable">{{percentage}}%</span>
     </li>
   </ul>
   <div class="chart-column-wrapper">

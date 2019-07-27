@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Team } from 'src/app/shared/models/Team';
+import { Component, Input, OnInit } from '@angular/core';
 import { ServerService } from 'src/app/services/server.service';
+import { Team } from 'src/app/shared/models/Team';
 
 @Component({
   selector: 'chart',
@@ -16,7 +16,7 @@ export class ChartComponent implements OnInit {
 
   ngOnInit() {
     this.getAllTeams();
-    this.calculateYAxisPercentageLables(this.baseUnit);
+    this.calculateYAxisPercentageLables();
   }
 
   getAllTeams() {
@@ -25,11 +25,11 @@ export class ChartComponent implements OnInit {
     });
   }
 
-  calculateYAxisPercentageLables(baseUnit: number) {
+  calculateYAxisPercentageLables() {
     let maxPrecentage = 100;
     do {
       this.percentageLables.push(maxPrecentage);
-      maxPrecentage = maxPrecentage - baseUnit;
+      maxPrecentage = maxPrecentage - this.baseUnit;
     } while (maxPrecentage > 0)
   }
 

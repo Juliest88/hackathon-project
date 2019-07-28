@@ -1,6 +1,6 @@
 <div class="chart-wrapper">
   <div class="title">
-    World War 3
+    gaming legends
   </div>
   <ul class="y-axis">
     <li class="graph-row-lable" *ngFor="let percentage of percentageLables">
@@ -11,4 +11,9 @@
     <chart-column *ngFor="let chartItem of chartItems" [chartItem]="chartItem">
     </chart-column>
   </div>
+  <span class="today-markup" [style.bottom.%]="currentTarget">
+    <span class="today-text">
+      Today
+    </span>
+  </span>
 </div>

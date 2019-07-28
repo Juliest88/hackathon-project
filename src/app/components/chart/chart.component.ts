@@ -9,8 +9,9 @@ import { Team } from 'src/app/shared/models/Team';
 })
 export class ChartComponent implements OnInit {
   @Input() baseUnit: number;
-  chartItems: Team[];
   percentageLables: number[] = [];
+  chartItems: Team[];
+  currentTarget: number;
 
   constructor(private serverService: ServerService) { }
 
@@ -20,6 +21,11 @@ export class ChartComponent implements OnInit {
   }
 
   getAllTeams() {
+    this.getTeams();
+    this.calculateCurrentTarget();
+  }
+
+  getTeams(): void {
     this.serverService.getAllTeams().subscribe(teams => {
       this.chartItems = teams;
     });
@@ -32,5 +38,20 @@ export class ChartComponent implements OnInit {
       maxPrecentage = maxPrecentage - this.baseUnit;
     } while (maxPrecentage > 0)
   }
+
+  getDaysInMonth(month: number, year: number): number {
+    // January is 1 based
+    // Day 0 is the last day in the previous month
+    return new Date(year, month, 0).getDate();
+  }
+
+  calculateCurrentTarget(): void {
+    let date = new Date();
+    let day = date.getDate();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+    this.currentTarget = (day / this.getDaysInMonth(month, year)) * 100;
+  }
+
 
 }

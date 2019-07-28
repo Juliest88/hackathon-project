@@ -1,14 +1,12 @@
 <div class="column">
-  <span class="text-wrapper">
-    <span class="country">
-      {{ chartItem.SEO_Team }}
-    </span>
-    <span class="performance"> {{ chartItem.completion_rate }}% </span>
-  </span>
   <span class="character">
     <img src="./../../../../assets/{{chartItem.id}}.gif" alt="{{chartItem.SEO_Team | uppercase}} Character"
       title="{{chartItem.SEO_Team | uppercase}} Character" />
   </span>
   <span #performanceBar class="performance-bar" [style.background-color]="chartItem.bgColor">
+    <span class="performance-text"> {{ chartItem.completion_rate }}% </span>
   </span>
 </div>
+<span class="team-name">
+  {{chartItem.SEO_Team}}
+</span>

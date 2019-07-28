@@ -1,13 +1,13 @@
 export enum TEAM_COLOR {
-    uk = '#ffdd00',
-    sweden = '#ff66ff',
-    denemark = '#66ffcc',
-    finland = '#ff1a75',
-    norway = '#00e673',
-    canada = '#00ffff',
-    'us sport' = '#0066ff',
-    row = '#f78b09',
-    'sk+gr' = '#00e6e6',
-    germany = '#ff4dff',
-    latin = '#0099cc'
+    uk = '#bebebe',
+    sweden = '#efab0e',
+    denemark = '#ff3ec5',
+    finland = '#6f00ae',
+    norway = '#29ccbb',
+    canada = '#ef3e38',
+    'uk sport' = '#00a754',
+    row = '#f700ff',
+    'sk+gr' = '#0061f3',
+    germany = '#ff7700',
+    latin = '#93d751'
 }

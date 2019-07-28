@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Team } from '../shared/models/Team';
 import { TEAM_COLOR } from '../shared/models/Team-color';
@@ -8,7 +8,9 @@ import { TEAM_COLOR } from '../shared/models/Team-color';
   providedIn: 'root'
 })
 export class ServerService {
-  constructor(private http: HttpClient) { }
+  apiURL: string = 'https://jgl96p4hgh.execute-api.us-east-2.amazonaws.com/master';
+
+  constructor(private httpClient: HttpClient) { }
 
   // mockup data
   getAllTeams(): Observable<Team[]> {
@@ -46,7 +48,7 @@ export class ServerService {
         },
         {
           id: 7,
-          SEO_Team: 'us sport',
+          SEO_Team: 'uk sport',
           completion_rate: 16
         },
         {
@@ -75,6 +77,10 @@ export class ServerService {
         observer.next(data);
       }, 1000);
     });
+  }
+
+  getTeams(): Observable<Team[]> {
+    return this.httpClient.get<Team[]>(`${this.apiURL}/teams`);
   }
 
   mappingTeamColor(data) {

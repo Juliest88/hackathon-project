@@ -1,62 +1,82 @@
-$chart_item_background_color: rgba(#11074d, 0.5);
-$char_color: #fff;
+@import "./../../../shared/variables";
+@import "./../../../shared/animations";
 
-.column {
-  position: relative;
-  text-align: center;
-  text-transform: uppercase;
+.column-wrapper {
   height: 100%;
-  background-color: $chart_item_background_color;
-  color: $char_color;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  border-bottom-left-radius: 300px;
-  border-bottom-right-radius: 300px;
-
-  &::before {
-    content: "";
-    display: block;
-    width: 100%;
-    flex-shrink: 0;
+  @include fadeInAnimation(0.5);
+  .column {
+    flex: 0 0 80%;
     margin-bottom: auto;
-    z-index: 2;
-  }
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
 
-  .character {
-    z-index: 2;
-    flex-shrink: 0;
-    transition: all 1.8s linear;
+    background-color: $chart_item_background_color;
+    color: $char_color;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-bottom-left-radius: 300px;
+    border-bottom-right-radius: 300px;
 
-    img {
-      max-width: 100%;
-    }
-  }
-
-  .performance-bar {
-    flex: 0 0 auto;
-    transition: all 1.8s linear;
-
-    .performance-text {
-      position: relative;
-      left: 50%;
-      transform: translatex(-50%);
+    &::before {
+      content: "";
       display: block;
-      font-size: 24px;
-      font-weight: 500;
-      margin-top: 5px;
+      width: 100%;
+      flex-shrink: 0;
+      margin-bottom: auto;
       z-index: 2;
     }
 
-    &::after {
-      content: "";
-      width: 100%;
-      height: inherit;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      background: inherit;
-      z-index: 1;
+    .character {
+      z-index: 2;
+      flex-shrink: 0;
+      transition: all 1.8s linear;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .performance-bar {
+      flex: 0 0 auto;
+      transition: all 1.8s linear;
+
+      .performance-text {
+        position: relative;
+        left: 50%;
+        transform: translatex(-50%);
+        display: block;
+        font-size: 18px;
+        font-weight: 400;
+        z-index: 2;
+      }
+
+      &::after {
+        content: "";
+        width: 100%;
+        height: inherit;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: inherit;
+        z-index: 1;
+      }
+    }
+  }
+
+  .bottom-section {
+    .team-name {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      top: 18px;
+      font-size: 15px;
+      font-weight: 500;
+      text-transform: uppercase;
     }
   }
 }

@@ -1,19 +1,24 @@
 <div class="chart-wrapper">
-  <div class="title">
-    gaming legends
-  </div>
-  <ul class="y-axis">
-    <li class="graph-row-lable" *ngFor="let percentage of percentageLables">
-      <span class="percentage-lable">{{percentage}}%</span>
-    </li>
-  </ul>
-  <div class="chart-column-wrapper">
-    <chart-column *ngFor="let chartItem of chartItems" [chartItem]="chartItem">
-    </chart-column>
-  </div>
-  <span class="today-markup" [style.bottom.%]="currentTarget">
-    <span class="today-text">
-      Today
+  <div class="top-section">
+    <span class="last-modify">Last update:<span class="date">{{ modifyDate }}</span></span>
+    <span class="logo">
+      <img src="./../../../assets/logo.png" alt="Gaming Legends Logo">
     </span>
-  </span>
+  </div>
+  <div class="chart-section">
+    <ul class="y-axis">
+      <li class="graph-row-lable" *ngFor="let percentage of percentageLables">
+        <span class="percentage-lable">{{percentage}}%</span>
+      </li>
+    </ul>
+    <div class="chart-column-wrapper">
+      <chart-column *ngFor="let chartItem of chartItems" [chartItem]="chartItem" [currentTarget]="currentTarget">
+      </chart-column>
+    </div>
+    <span class="today-markup" [style.bottom.%]="currentTarget">
+      <span class="today-text">
+        Today
+      </span>
+    </span>
+  </div>
 </div>

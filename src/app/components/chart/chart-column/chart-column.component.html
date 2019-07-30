@@ -1,13 +1,19 @@
-<div class="column">
-  <span class="character">
-    <img src="./../../../../assets/{{chartItem.id}}.gif" alt="{{chartItem.SEO_Team | uppercase}} Character"
-      title="{{chartItem.SEO_Team | uppercase}} Character" />
-  </span>
-  <span #performanceBar class="performance-bar" [style.background-color]="chartItem.bgColor">
-    <span class="performance-text"> {{ chartItem.completion_rate }}% </span>
-  </span>
+<div class="column-wrapper">
+  <div class="column">
+    <span class="character">
+      <img #characterImg src="./../../../../assets/{{chartItem.baseImgUrl}}{{chartItem.emotion}}.gif" alt="{{chartItem.alias_name | uppercase}} Character"
+        title="{{chartItem.SEO_Team | uppercase}} Character" />
+    </span>
+    <span #performanceBar class="performance-bar" [style.background-color]="chartItem.bgColor">
+      <span class="performance-text"> {{ chartItem.Goal_Precnt_Month < 5 ? '' : chartItem.Goal_Precnt_Month + '%'}} </span>
+    </span>
+  </div>
+  <div class="bottom-section">
+    <span class="team-name">
+      {{chartItem.alias_name}}
+    </span>
+    <div class="gauge-chart-wrapper">
+      <div [chart]="pervasivenessScoreGaugeOptions"></div>
+    </div>
+  </div>
 </div>
-<span class="team-name">
-  {{chartItem.SEO_Team}}
-</span>
-<div [chart]="pervasivenessScoreGaugeOptions"></div>

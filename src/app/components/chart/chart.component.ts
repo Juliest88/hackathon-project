@@ -12,6 +12,7 @@ export class ChartComponent implements OnInit {
   percentageLables: number[] = [];
   chartItems: Team[];
   currentTarget: number;
+  modifyDate: string;
 
   constructor(private serverService: ServerService) { }
 
@@ -22,12 +23,13 @@ export class ChartComponent implements OnInit {
 
   getAllTeams() {
     this.getTeams();
-    this.calculateCurrentTarget();
+    this.calculateCurrentTarget(); // for Today lable
   }
 
   getTeams(): void {
-    this.serverService.getAllTeams().subscribe(teams => {
-      this.chartItems = teams;
+    this.serverService.getTeams().subscribe(teams => {
+      this.chartItems = this.serverService.mappingTeamColor(teams);
+      this.modifyDate = this.chartItems[0].Update_Timestamp;
     });
   }
 
@@ -36,21 +38,14 @@ export class ChartComponent implements OnInit {
     do {
       this.percentageLables.push(maxPrecentage);
       maxPrecentage = maxPrecentage - this.baseUnit;
-    } while (maxPrecentage > 0)
+    } while (maxPrecentage >= 0)
   }
 
-  getDaysInMonth(month: number, year: number): number {
-    // January is 1 based
-    // Day 0 is the last day in the previous month
-    return new Date(year, month, 0).getDate();
-  }
 
   calculateCurrentTarget(): void {
-    let date = new Date();
-    let day = date.getDate();
-    let month = date.getMonth();
-    let year = date.getFullYear();
-    this.currentTarget = (day / this.getDaysInMonth(month, year)) * 100;
+    this.serverService.calculateCurrentTarget().subscribe(currentTarget => {
+      this.currentTarget = currentTarget;
+    });
   }
 
 

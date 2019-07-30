@@ -2,91 +2,48 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Team } from '../shared/models/Team';
-import { TEAM_COLOR } from '../shared/models/Team-color';
+import * as TEAM_CONF from '../shared/models/Team-conf';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServerService {
-  apiURL: string = 'https://jgl96p4hgh.execute-api.us-east-2.amazonaws.com/master';
+  private apiURL: string = 'http://10.15.2.144:8080/v1/report';
+  private currentTarget: number; // today label
 
   constructor(private httpClient: HttpClient) { }
 
-  // mockup data
-  getAllTeams(): Observable<Team[]> {
-    return new Observable(observer => {
-      let data = [
-        {
-          id: 1,
-          SEO_Team: 'uk',
-          completion_rate: 5
-        },
-        {
-          id: 2,
-          SEO_Team: 'sweden',
-          completion_rate: 18
-        },
-        {
-          id: 3,
-          SEO_Team: 'denemark',
-          completion_rate: 12
-        },
-        {
-          id: 4,
-          SEO_Team: 'finland',
-          completion_rate: 16
-        },
-        {
-          id: 5,
-          SEO_Team: 'norway',
-          completion_rate: 37
-        },
-        {
-          id: 6,
-          SEO_Team: 'canada',
-          completion_rate: 100
-        },
-        {
-          id: 7,
-          SEO_Team: 'uk sport',
-          completion_rate: 16
-        },
-        {
-          id: 8,
-          SEO_Team: 'row',
-          completion_rate: 30
-        },
-        {
-          id: 9,
-          SEO_Team: 'sk+gr',
-          completion_rate: 32
-        },
-        {
-          id: 10,
-          SEO_Team: 'germany',
-          completion_rate: 31
-        },
-        {
-          id: 11,
-          SEO_Team: 'latin',
-          completion_rate: 0
-        }
-      ];
-      setTimeout(() => {
-        data = this.mappingTeamColor(data);
-        observer.next(data);
-      }, 1000);
-    });
-  }
-
   getTeams(): Observable<Team[]> {
-    return this.httpClient.get<Team[]>(`${this.apiURL}/teams`);
+    return this.httpClient.get<Team[]>('./../../assets/data.json');
   }
 
-  mappingTeamColor(data) {
+  mappingTeamColor(data: Team[]): Team[] {
     data.forEach(team => {
-      team.bgColor = TEAM_COLOR[team['SEO_Team']];
+      team.bgColor = TEAM_CONF.TEAM_COLOR[team['Country_Team']];
+      team.alias_name = TEAM_CONF.TEAM_ALIAS_NAME[team['Country_Team']];
+      team.baseImgUrl = this.removeSpaceFromStrings(TEAM_CONF.TEAM_ALIAS_NAME[team['Country_Team']]);
+      team.emotion = team.Goal_Precnt_Month > this.currentTarget ? '_happy' : '_bored';
     });
     return data;
+  }
+
+  removeSpaceFromStrings(str: string): string {
+    return str.replace(/\s/g, '');
+  }
+
+  getDaysInMonth(month: number, year: number): number {
+    return new Date(year, month, 0).getDate();
+  }
+
+  calculateCurrentTarget(): Observable<number> {
+    return new Observable(observer => {
+      let date = new Date();
+      let day = date.getDate();
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+      this.currentTarget = Math.floor((day / this.getDaysInMonth(month, year)) * 100);
+      observer.next(this.currentTarget)
+    });
+
   }
 }

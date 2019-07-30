@@ -1,7 +1,11 @@
 export interface Team {
-    id: number,
-    SEO_Team: string,
-    completion_rate: number,
+    Country_Team: string,
+    Goal_Precnt_Month: number,
+    Goal_Precnt_Year: number,
+    Update_Timestamp: string,
+    id?: number,
     bgColor?: string,
-    month?: number
+    alias_name?: string;
+    baseImgUrl?: string;
+    emotion?: string;
 }

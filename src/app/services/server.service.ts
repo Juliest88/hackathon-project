@@ -39,14 +39,27 @@ export class ServerService {
     return new Date(year, month, 0).getDate();
   }
 
+  /**
+   * This function will calculate currentTarget(Today) now and each midnight
+   */
   calculateCurrentTarget(): Observable<number> {
     return new Observable(observer => {
       let date = new Date();
       let day = date.getDate();
       let month = date.getMonth() + 1;
       let year = date.getFullYear();
+      let midnight = new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate() + 1, // the next day, ...
+        0, 0, 0 // ...at 00:00:00 hours
+      );
+      let msToMidnight = midnight.getTime() - date.getTime();
       this.currentTarget = Math.floor((day / this.getDaysInMonth(month, year)) * 100);
-      observer.next(this.currentTarget)
+      observer.next(this.currentTarget);
+      setTimeout(() => {
+        this.calculateCurrentTarget();
+      }, msToMidnight);
     });
   }
 

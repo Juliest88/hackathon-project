@@ -51,9 +51,9 @@ export class ChartColumnComponent implements OnInit {
       title: null,
       yAxis: {
         stops: [
-          [0.4, this.chartItem.bgColor], // green
-          [0.7, this.chartItem.bgColor], // yellow
-          [0.9, this.chartItem.bgColor] // red
+          [0.4, this.chartItem.bgColor],
+          [0.7, this.chartItem.bgColor],
+          [0.9, this.chartItem.bgColor]
         ],
         lineWidth: 0,
         tickWidth: 0,

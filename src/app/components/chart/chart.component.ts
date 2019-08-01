@@ -28,7 +28,7 @@ export class ChartComponent implements OnInit {
 
   getTeams(): void {
     this.serverService.getTeams().subscribe(teams => {
-      this.chartItems = this.serverService.mappingTeamColor(teams);
+      this.chartItems = teams;
       this.modifyDate = this.chartItems[0].Update_Timestamp;
     });
   }

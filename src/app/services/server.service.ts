@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map, retry } from 'rxjs/operators';
 import { Team } from '../shared/models/Team';
-import * as TEAM_CONF from '../shared/models/Team-conf';
+import * as TEAM_CONF from './../shared/models/Team-conf';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +17,8 @@ export class ServerService {
   constructor(private httpClient: HttpClient) { }
 
   getTeams(): Observable<Team[]> {
-    return this.httpClient.get<Team[]>('./../../assets/data.json');
+    return this.httpClient.get<Team[]>('./../../assets/data.json')
+      .pipe(map(val => this.mappingTeamColor(val)), retry(1), catchError(err => this.errorHandl(err)));
   }
 
   mappingTeamColor(data: Team[]): Team[] {
@@ -44,6 +48,19 @@ export class ServerService {
       this.currentTarget = Math.floor((day / this.getDaysInMonth(month, year)) * 100);
       observer.next(this.currentTarget)
     });
+  }
 
+  // Error handling
+  errorHandl(error) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // Get client-side error
+      errorMessage = error.error.message;
+    } else {
+      // Get server-side error
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
   }
 }

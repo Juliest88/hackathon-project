@@ -43,7 +43,7 @@ export class ChartColumnComponent implements OnInit {
   private getGaugeBaseOptions(value: number): any {
     return {
       chart: {
-        height: 90,
+        height: 130,
         type: 'solidgauge',
         margin: [0, 0, 0, 0],
         backgroundColor: 'transparent',
@@ -51,9 +51,9 @@ export class ChartColumnComponent implements OnInit {
       title: null,
       yAxis: {
         stops: [
-          [0.4, this.chartItem.bgColor],
+          [0.4, this.chartItem.bgColor], 
           [0.7, this.chartItem.bgColor],
-          [0.9, this.chartItem.bgColor]
+          [0.9, this.chartItem.bgColor] 
         ],
         lineWidth: 0,
         tickWidth: 0,
@@ -68,7 +68,7 @@ export class ChartColumnComponent implements OnInit {
         startAngle: -100,
         endAngle: 100,
         background: {
-          borderWidth: 0,
+          borderWidth: 3,
           backgroundColor: '#190c69',
           shape: 'arc',
           borderColor: '#190c69',
@@ -115,7 +115,7 @@ export class ChartColumnComponent implements OnInit {
           {
             data: [score],
             dataLabels: {
-              format: `<div class='yearly-percentage' style="color: #fff; font-size: 16px; font-weight:400; position: relative; top: 5px; font-family: 'Barlow', sans-serif;">
+              format: `<div class='yearly-percentage' style="color: #fff; font-size: 24px; font-weight:400; position: relative; top: 10px; left: 5px; font-family: 'Barlow', sans-serif;">
               <span>{y}%</span>
               </div>`
             },

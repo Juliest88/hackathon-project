@@ -55,7 +55,10 @@ export class ServerService {
         0, 0, 0 // ...at 00:00:00 hours
       );
       let msToMidnight = midnight.getTime() - date.getTime();
-      this.currentTarget = Math.floor((day / this.getDaysInMonth(month, year)) * 100);
+      let passedDays = Math.floor((day / this.getDaysInMonth(month, year)) * 100);
+      let baseOffset = 20;
+      let actualOffset = baseOffset - (baseOffset * (passedDays / 100));
+      this.currentTarget = passedDays + actualOffset;
       observer.next(this.currentTarget);
       setTimeout(() => {
         this.calculateCurrentTarget();

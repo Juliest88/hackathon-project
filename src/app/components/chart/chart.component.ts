@@ -19,11 +19,11 @@ export class ChartComponent implements OnInit {
   ngOnInit() {
     this.getAllTeams();
     this.calculateYAxisPercentageLables();
+    this.calculateCurrentTarget(); // for Today lable
   }
 
   getAllTeams() {
     this.getTeams();
-    this.calculateCurrentTarget(); // for Today lable
   }
 
   getTeams(): void {
@@ -47,6 +47,4 @@ export class ChartComponent implements OnInit {
       this.currentTarget = currentTarget;
     });
   }
-
-
 }
